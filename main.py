@@ -13,23 +13,12 @@ RATES = {
 
 def convert_currency():
     try:
+
         amount = entry_amount.get()
-        # ПОМИЛКА ФУНКЦІОНАЛЬНА 1: Немає перевірки на тип даних (crash при введенні літер)
-        amount = float(amount) 
-        
-        # Отримуємо обрану валюту (але логіка вибору ігнорується)
-        selected_currency = listbox_currency.get(tk.ACTIVE)
-        
-        # ПОМИЛКА ФУНКЦІОНАЛЬНА 2: Використовується неправильна математична формула
-        # Замість множення (amount * rate) відбувається додавання
-        rate = RATES["USD"] # ПОМИЛКА ФУНКЦІОНАЛЬНА 3: Завжди береться курс USD, незалежно від вибору
-        result = amount + rate 
-        
-        label_result.config(text=f"Result: {result}")
-        
+        amount = float(amount)
     except ValueError:
-        # Цей блок не спрацює коректно для користувача, бо програма просто впаде в консолі
-        print("Error")
+        messagebox.showerror("Error", "Будь ласка, введіть число!")
+    return
 
 root = tk.Tk()
 
