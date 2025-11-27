@@ -17,15 +17,17 @@ def convert_currency():
         # ПОМИЛКА ФУНКЦІОНАЛЬНА 1: Немає перевірки на тип даних (crash при введенні літер)
         amount = float(amount) 
         
-        # Отримуємо обрану валюту (але логіка вибору ігнорується)
-        selected_currency = listbox_currency.get(tk.ACTIVE)
         
-        # ПОМИЛКА ФУНКЦІОНАЛЬНА 2: Використовується неправильна математична формула
-        # Замість множення (amount * rate) відбувається додавання
-        rate = RATES["USD"] # ПОМИЛКА ФУНКЦІОНАЛЬНА 3: Завжди береться курс USD, незалежно від вибору
-        result = amount + rate 
-        
-        label_result.config(text=f"Result: {result}")
+        try:
+               selected_index = listbox_currency.curselection()[0]
+               selected_currency = listbox_currency.get(selected_index)
+               rate = RATES[selected_currency]
+               result = amount * rate
+               label_result.config(text=f"Result: {result:.2f} UAH")
+        except IndexError:
+                messagebox.showwarning("Warning", "Оберіть валюту зі списку!")
+        return
+# ---------------------------
         
     except ValueError:
         # Цей блок не спрацює коректно для користувача, бо програма просто впаде в консолі
