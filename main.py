@@ -1,3 +1,6 @@
+# Цей код розроблений студентом Фальківським Н.П.
+# Версія з багами для лабораторної роботи
+
 import tkinter as tk
 from tkinter import messagebox
 
