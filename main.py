@@ -29,7 +29,7 @@ root.geometry("300x300")
 # ПОМИЛКА UI/UX 1: Жахливий контраст (світло-жовтий текст на білому фоні)
 root.configure(bg="white")
 
-label_instruction = tk.Label(root, text="Enter amount in UAH:", bg="white", fg="#FFFF00") # Жовтий текст
+label_instruction = tk.Label(root, text="Enter amount in UAH:", bg="white", fg="black") # Жовтий текст
 label_instruction.pack(pady=10)
 
 entry_amount = tk.Entry(root)
@@ -49,7 +49,7 @@ btn_convert = tk.Button(root, text="Do it", command=convert_currency, bg="red", 
 btn_convert.pack(pady=20)
 
 # ПОМИЛКА UI/UX 3: Результат виводиться шрифтом 6px (майже нечитабельно)
-label_result = tk.Label(root, text="Result: 0.00", bg="white", fg="black", font=("Arial", 6))
+label_result = tk.Label(root, text="Result: 0.00", bg="white", fg="black", font=("Arial", 12, "bold"))
 label_result.pack(side=tk.LEFT) # Вирівнювання зліва, хоча все інше по центру
 
 root.mainloop()
