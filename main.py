@@ -29,7 +29,9 @@ def convert_currency():
         print("Error")
 
 root = tk.Tk()
-root.title("Best Converter LOCAL EDITION")
+
+root.title("Best Converter ONLINE EDITION")
+
 root.geometry("300x300")
 
 # ПОМИЛКА UI/UX 1: Жахливий контраст (світло-жовтий текст на білому фоні)
